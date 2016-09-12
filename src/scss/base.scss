@@ -4,15 +4,4 @@
 @import "vendor/font-awesome/scss/font-awesome.scss";
 @import 'lib/_theme';
 
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  background-color: $app-background;
-}
-
-h1, h2 {
-  color: $app-text;
-}
+html, body {}
