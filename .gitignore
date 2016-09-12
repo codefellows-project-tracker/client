@@ -67,3 +67,4 @@ tags
 node_modules
 **/*.sw?
 db
+build/
