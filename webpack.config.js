@@ -45,6 +45,6 @@ module.exports = {
   ],
   devServer: {
     inline: true,
-    port: 3141,
+    port: 3142,
   },
 };
