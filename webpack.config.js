@@ -34,6 +34,10 @@ module.exports = {
         test: /\.(woff|svg|eot|ttf).*/,
         loader: 'url?limit=10000',
       },
+      {
+        test: /\.(png|jpg|gif).*/,
+        loader: 'file?name=img/[name].[ext]',
+      },
     ],
   },
   postcss() {
