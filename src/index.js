@@ -5,22 +5,26 @@ require('./scss/base.scss');
 
 
 const angular = require('angular');
-require('angular-ui-router');
 
-const cptApp = angular.module('cptApp', [require('angular-jwt'), 'ui.router']);
+const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap')]);
+
+require('./components')(cptApp);
 
 cptApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
-  //$locationProvider.html5Mode(true);
-  $locationProvider.hashPrefix('!');
 
-  $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
-  $stateProvider.state('home', {
-    url: '/home',
-    template: require('./html/index.html'),
-  })
-  .state('/about', {
-    url: '/about',
-    template: require('./html/home.html')
-  });
+    $stateProvider
+      .state('home', {
+        url: '/',
+        template: require('./html/home.html'),
+        controller: function () {
+            this.title = 'This is page 1';
+        },
+        controllerAs: 'test'
+      })
+      .state('about', {
+        url: '/about',
+        template: require('./html/about.html')
+      });
 }]);
