@@ -2,6 +2,7 @@
 
 require('!!file?name=[name].[ext]!./html/index.html');
 require('./scss/base.scss');
+require('file?name=[name].[ext]!./img/logo.png');
 
 
 const angular = require('angular');
@@ -26,5 +27,13 @@ cptApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
       .state('about', {
         url: '/about',
         template: require('./html/about.html')
+      })
+      .state('signin', {
+        url: '/signin',
+        template: require('./html/signin.html')
+      })
+      .state('signup', {
+        url: '/signup',
+        template: require('./html/signup.html')
       });
 }]);
