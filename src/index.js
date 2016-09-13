@@ -8,7 +8,7 @@ require('file?name=[name].[ext]!./img/logo.png');
 const angular = require('angular');
 
 const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap')]);
-
+require('./services')(cptApp);
 require('./components')(cptApp);
 
 cptApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
