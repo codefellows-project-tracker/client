@@ -2,8 +2,10 @@
   <div class="row">
     <div class="col-md-12">
       <div class="col-lg-3 col-md-4 thumb project" ng-repeat="project in $ctrl.projects">
-        <a class="thumbnail" href="#">
+        <a class="thumbnail" href="#/project/{{project._id}}">
           <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+        <p>{{project.name}}</p>
+        <p>{{project._id}}</p>
         </a>
       </div>
   </div>
