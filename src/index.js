@@ -7,7 +7,7 @@ require('file?name=[name].[ext]!./img/logo.png');
 
 const angular = require('angular');
 
-const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap')]);
+const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap'), require('angular-animate'), require('angular-touch')]);
 require('./services')(cptApp);
 require('./components')(cptApp);
 
