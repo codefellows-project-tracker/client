@@ -1,27 +1,10 @@
-<div class="container">
+<div class="container" ng-init="$ctrl.getProjects()">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-lg-3 col-md-4 thumb project">
+      <div class="col-lg-3 col-md-4 thumb project" ng-repeat="project in $ctrl.projects">
         <a class="thumbnail" href="#">
           <img class="img-responsive" src="http://placehold.it/400x300" alt="">
         </a>
       </div>
-      <div class="col-lg-3 col-md-4 thumb project">
-        <a class="thumbnail" href="#">
-          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 thumb project">
-        <a class="thumbnail" href="#">
-          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-          <p>Data</p>
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 thumb project">
-        <a class="thumbnail" href="#">
-          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-        </a>
-      </div>
-    </div>
   </div>
 </div>

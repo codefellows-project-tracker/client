@@ -45,7 +45,7 @@ module.exports = {
   },
   plugins: [
     new ExtractText('bundle.css'),
-    new webpack.DefinePlugin({ __API_URL__: JSON.stringify(process.env.API_URL || 'http://localhost:3000') }),
+    new webpack.DefinePlugin({ __API_URL__: JSON.stringify(process.env.API_URL || 'http://localhost:3141') }),
   ],
   devServer: {
     inline: true,

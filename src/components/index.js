@@ -6,4 +6,5 @@ module.exports = function(app) {
   require('./signup')(app);
   require('./gallery')(app);
   require('./carousel')(app);
+  require('./project-form')(app);
 };

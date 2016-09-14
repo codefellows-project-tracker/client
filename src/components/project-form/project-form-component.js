@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = function(app) {
-  app.component('cptGallery', {
+  app.component('cptProjectForm', {
+    template: require('./project-form-template.html'),
     controller: 'ProjectController',
-    template: require('./gallery-template.html')
   });
 };

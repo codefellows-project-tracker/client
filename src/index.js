@@ -8,7 +8,13 @@ require('file?name=[name].[ext]!./img/logo.png');
 const angular = require('angular');
 
 const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap'), require('angular-animate'), require('angular-touch')]);
+
+cptApp.run(['$rootScope', function($rootScope){
+  $rootScope.baseUrl = `${__API_URL__}`;
+}]);
+
 require('./services')(cptApp);
+require('./controllers')(cptApp);
 require('./components')(cptApp);
 
 cptApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
@@ -20,20 +26,24 @@ cptApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
         url: '/',
         template: require('./html/home.html'),
         controller: function () {
-            this.title = 'This is page 1';
+          this.title = 'This is page 1';
         },
-        controllerAs: 'test'
+        controllerAs: 'test',
       })
       .state('about', {
         url: '/about',
-        template: require('./html/about.html')
+        template: require('./html/about.html'),
       })
       .state('signin', {
         url: '/signin',
-        template: require('./html/signin.html')
+        template: require('./html/signin.html'),
       })
       .state('signup', {
         url: '/signup',
-        template: require('./html/signup.html')
+        template: require('./html/signup.html'),
+      })
+      .state('formSubmit', {
+        url: '/submit',
+        template: require('./html/project-submit.html'),
       });
 }]);
