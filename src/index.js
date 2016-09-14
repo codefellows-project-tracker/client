@@ -45,5 +45,9 @@ cptApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
       .state('formSubmit', {
         url: '/submit',
         template: require('./html/project-submit.html'),
+      })
+      .state('project', {
+        url: '/project/:id',
+        template: require('./html/project.html'),
       });
 }]);
