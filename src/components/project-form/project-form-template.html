@@ -1,0 +1,46 @@
+<form class="container" ng-submit="$ctrl.createProject(project)">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="text-center">Submit your Project</h1>
+      <div class="form-group">
+        <label class="control-label" for="name">Project Name </label>
+        <input class="form-control" type="text" name="name" ng-model="$ctrl.project.projectName">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="hostedUrl">Hosted Url </label>
+        <input class="form-control" type="text" name="hostedUrl" ng-model="$ctrl.project.hostedUrl">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="githubUrl">Github Url </label>
+        <input class="form-control" type="text" name="githubUrl" ng-model="$ctrl.project.githubUrl">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="imageUrl">Image Url </label>
+        <input class="form-control" type="text" name="imageUrl" ng-model="$ctrl.project.imageUrl">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="tech">Technologies</label>
+        <input class="form-control" type="text" name="tech" ng-model="$ctrl.project.tech">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="Description">Description</label>
+        <input class="form-control" type="text" name="Description">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="classType">Class</label>
+        <select class="selectpicker">
+          <option>201</option>
+          <option>301</option>
+          <option>JavaScript 401</option>
+          <option>Python 401</option>
+          <option>iOS 401</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="classNumber">Class Number</label>
+        <input class="form-control" type="text" name="classNumber">
+      </div>
+      <button class="btn btn-default" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

@@ -20,20 +20,24 @@ cptApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
         url: '/',
         template: require('./html/home.html'),
         controller: function () {
-            this.title = 'This is page 1';
+          this.title = 'This is page 1';
         },
-        controllerAs: 'test'
+        controllerAs: 'test',
       })
       .state('about', {
         url: '/about',
-        template: require('./html/about.html')
+        template: require('./html/about.html'),
       })
       .state('signin', {
         url: '/signin',
-        template: require('./html/signin.html')
+        template: require('./html/signin.html'),
       })
       .state('signup', {
         url: '/signup',
-        template: require('./html/signup.html')
+        template: require('./html/signup.html'),
+      })
+      .state('formSubmit', {
+        url: '/submit',
+        template: require('./html/project-submit.html'),
       });
 }]);
