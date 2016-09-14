@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ProjectController', ['$http', function($http) {
+  app.controller('ProjectController', ['$http', 'auth', function($http, auth) {
     this.projects = [];
 
-    console.log('hey')
+    this.token = auth.getToken();
 
     let baseUrl = `${__API_URL__}/api/project`;
 
@@ -12,6 +12,7 @@ module.exports = function(app) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token,
       },
     };
 
@@ -26,6 +27,7 @@ module.exports = function(app) {
     };
 
     this.createProject = function(project) {
+      console.log(project)
       $http.post(baseUrl, project, config)
         .then(res => {
           this.projects.push(res.data);
@@ -33,7 +35,6 @@ module.exports = function(app) {
         .catch(err => {
           console.log(err);
         })
-      console.log(project)
     };
 
   }]);

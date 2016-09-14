@@ -2,12 +2,13 @@
 
 module.exports = function(app) {
   app.controller('AuthController', ['$http', '$location', '$window', 'auth', function($http, $location, $window, auth) {
-    if (auth.getToken({noRedirect: true})) $location.path('/notes');
+    let baseUrl = `${__API_URL__}/api/user`;
+    // if (auth.getToken({noRedirect: true})) $location.path('/notes');
 
     this.signup = function(user) {
-      $http.post(this.baseUrl + '/api/signup', user)
+      $http.post(baseUrl, user)
         .then((res) => {
-          auth.setToken(res.data.token);
+          console.log(res)
           $location.path('/notes');
         }, (err) => {
           console.log(err);
@@ -15,14 +16,11 @@ module.exports = function(app) {
     };
 
     this.signin = function(user) {
-      $http.get(this.baseUrl + '/api/signin', {
-        headers: {
-          'Authorization': 'Basic ' + $window.btoa(user.email + ':' + user.password)
-        }
-      })
+      console.log(user);
+      $http.post(`${__API_URL__}/api/login`, user)
         .then((res) => {
           auth.setToken(res.data.token);
-          $location.path('/notes');
+          $location.path('/');
         }, (err) => {
           console.log(err);
         })

@@ -9,6 +9,9 @@ const angular = require('angular');
 
 const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap'), require('angular-animate'), require('angular-touch')]);
 
+cptApp.run(['$rootScope', function($rootScope){
+  $rootScope.baseUrl = `${__API_URL__}`;
+}]);
 
 require('./services')(cptApp);
 require('./controllers')(cptApp);

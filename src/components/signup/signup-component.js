@@ -2,7 +2,10 @@
 
 module.exports = function(app) {
   app.component('cptSignup', {
-    controller: function() {},
+    controller: 'AuthController',
     template: require('./signup-template.html'),
+    bindings: {
+      baseUrl: '<',
+    }
   });
 };

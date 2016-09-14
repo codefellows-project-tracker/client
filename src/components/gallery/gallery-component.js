@@ -2,9 +2,7 @@
 
 module.exports = function(app) {
   app.component('cptGallery', {
-    controller: function() {
-      this.lol = true;
-    },
+    controller: 'ProjectController',
     template: require('./gallery-template.html')
   });
 };
