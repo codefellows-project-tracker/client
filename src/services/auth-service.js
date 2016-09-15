@@ -8,7 +8,7 @@ module.exports = function(app) {
         options = options || {};
         if (this.token) return this.token;
         if ($window.localStorage.token) return this.setToken($window.localStorage.token);
-        if (!options.noRedirect) $location.path('/signup');
+        // if (!options.noRedirect) $location.path('/signup');
       },
       setToken: function(token) {
         $window.localStorage.token = token;
@@ -20,14 +20,15 @@ module.exports = function(app) {
         let token = this.getToken();
         if (!token) return;
         let decoded = jwt.decodeToken(token);
-        this.currentUser.username = decoded.username;
+        this.currentUser.email = decoded.email;
+        console.log(this.currentUser)
         return this.currentUser;
       },
       logOut: function() {
-        $window.localStorage.token = '';
+        $window.localStorage.clear();
         this.currentUser = '';
         this.token = '';
-        $location.path('signin');
+        $location.path('/');
       }
     }
   }]);

@@ -14,11 +14,15 @@
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" uib-collapse="navCollapsed">
        <ul class="nav navbar-nav">
          <li ng-class="{active: $ctrl.isActive('/')}"><a ui-sref="home">Home</a></li>
-         <li ng-class="{active: $ctrl.isActive('/submit')}"><a ui-sref="formSubmit">Submit</a></li>
+         <li ng-hide="!$ctrl.getUser()" ng-class="{active: $ctrl.isActive('/submit')}"><a ui-sref="formSubmit">Submit</a></li>
        </ul>
-       <ul class="nav navbar-nav navbar-right">
+       <ul class="nav navbar-nav navbar-right" ng-show="!$ctrl.getUser()">
          <li ng-class="{active: $ctrl.isActive('/signin')}"><a ui-sref="signin">Sign In</a></li>
          <li ng-class="{active: $ctrl.isActive('/signup')}"><a ui-sref="signup">Sign Up</a></li>
+       </ul>
+       <ul class="nav navbar-nav navbar-right" ng-show="$ctrl.getUser()">
+         <p style="float:left">{{$ctrl.getUser().email}}</p>
+         <button style="float:right;"class="btn btn-danger" ng-click="$ctrl.logOut()">Logout</button>
        </ul>
      </div>
    </nav>
