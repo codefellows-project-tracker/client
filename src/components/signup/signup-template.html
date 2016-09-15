@@ -2,6 +2,9 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1 class="text-center">Register </h1>
+      <div uib-alert close="$ctrl.closeAlert()" ng-show="!$ctrl.passMatch" class="alert alert-danger" role="alert">
+        <p> password don't match </p>
+      </div>
       <div class="form-group">
         <label class="control-label" for="name-input">Name </label>
         <input class="form-control" type="text" name="name-input" ng-model="$ctrl.user.name">
@@ -16,7 +19,7 @@
       </div>
       <div class="form-group">
         <label class="control-label" for="repassword-input">Verify Password </label>
-        <input class="form-control" type="password" name="repassword-input">
+        <input class="form-control" type="password" name="repassword-input" ng-model="$ctrl.user.verifyPass">
       </div>
       <button class="btn btn-default" type="submit">Submit</button>
     </div>
