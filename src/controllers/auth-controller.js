@@ -4,17 +4,25 @@ module.exports = function(app) {
   app.controller('AuthController', ['$http', '$location', '$window', 'auth', function($http, $location, $window, auth) {
     let baseUrl = `${__API_URL__}/api/user`;
     // if (auth.getToken({noRedirect: true})) $location.path('/notes');
-
+ this.passMatch = true;
+ this.closeAlert = function() {
+   this.passMatch = true;
+ };
     this.signup = function(user) {
+      console.log(user);
+      if(user.password !== user.verifyPass){
+       this.passMatch = false;
+       return;
+     };
       $http.post(baseUrl, user)
         .then((res) => {
-          console.log(res)
-          $location.path('/notes');
+          this.passMatch = true;
+          $location.path('/');
         }, (err) => {
           console.log(err);
         });
     };
-
+    this.badLogin = false;
     this.signin = function(user) {
       console.log(user);
       $http.post(`${__API_URL__}/api/login`, user)
@@ -22,7 +30,7 @@ module.exports = function(app) {
           auth.setToken(res.data.token);
           $location.path('/');
         }, (err) => {
-          console.log(err);
+          this.badLogin = true;
         })
     };
 
