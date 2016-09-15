@@ -16,7 +16,6 @@ module.exports = function(app) {
     };
 
     this.signin = function(user) {
-      console.log(user);
       $http.post(`${__API_URL__}/api/login`, user)
         .then((res) => {
           auth.setToken(res.data.token);
