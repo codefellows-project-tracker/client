@@ -1,21 +1,22 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('AuthController', ['$http', '$location', '$window', 'auth', function($http, $location, $window, auth) {
-    let baseUrl = `${__API_URL__}/api/user`;
+  app.controller('AuthController', ['$http', '$location', '$window', 'auth',
+  function($http, $location, $window, auth) {
+    const baseUrl = `${__API_URL__}/api/user`;
     // if (auth.getToken({noRedirect: true})) $location.path('/notes');
- this.passMatch = true;
- this.closeAlert = function() {
-   this.passMatch = true;
- };
+    this.passMatch = true;
+    this.closeAlert = function() {
+      this.passMatch = true;
+      this.badLogin = false;
+    };
     this.signup = function(user) {
-      console.log(user);
-      if(user.password !== user.verifyPass){
-       this.passMatch = false;
-       return;
-     };
+      if (user.password !== user.verifyPass) {
+        this.passMatch = false;
+        return;
+      }
       $http.post(baseUrl, user)
-        .then((res) => {
+        .then(() => {
           this.passMatch = true;
           $location.path('/');
         }, (err) => {
@@ -28,9 +29,9 @@ module.exports = function(app) {
         .then((res) => {
           auth.setToken(res.data.token);
           $location.path('/');
-        }, (err) => {
+        }, () => {
           this.badLogin = true;
-        })
+        });
     };
 
     this.getUser = auth.getUser.bind(auth);
