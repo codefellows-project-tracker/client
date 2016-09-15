@@ -1,9 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>{{$ctrl.project.name}}</h1>
-      <img src="{{$ctrl.project.image}}" alt="{{$ctrl.project.description}}">
+    <div class="col-md-8">
+      <img class="img-responsive" src="{{$ctrl.project.image}}" alt="">
+    </div>
+    <div class="col-md-4">
+      <h3>{{$ctrl.project.name}}</h3>
       <p>{{$ctrl.project.description}}</p>
+      <h3>Tech</h3>
+      <ul>
+        <li ng-repeat="tech in $ctrl.project.tech">{{tech}}</li>
+      </ul>
+      <h3>Class</h3>
+      <p><b>Number:</b> {{$ctrl.project.classNumber}}</p>
+      <p><b>Type:</b> {{$ctrl.project.classType}}</p>
+      <h3>Links</h3>
+      <p><i class="fa fa-github fa-2x"><a href="{{$ctrl.project.githubUrl}}"> Github</a></i></p>
+      <p><i class="fa fa-server fa-2x"><a href="{{$ctrl.project.hostedUrl}}"> Hosted Url</a></i></p>
     </div>
   </div>
 </div>

@@ -1,12 +1,14 @@
 <div class="container" ng-init="$ctrl.getProjects()">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-6 thumb project" ng-repeat="project in $ctrl.projects">
-        <a ng-hide="!project.approved" class="thumbnail" href="#/project/{{project._id}}">
-          <img class="img-responsive" src="{{project.image}}" alt="">
-        <p>{{project.name}}</p>
-        <p>{{project._id}}</p>
-        </a>
+      <div class="col-md-6 portfolio-item" ng-repeat="project in $ctrl.projects">
+          <a href="#/project/{{project._id}}">
+              <img class="img-responsive" src="{{project.image}}" alt="">
+          </a>
+          <h3>
+              <a href="#/project/{{project._id}}">{{project.name}}</a>
+          </h3>
+          <p>{{project.description | limitTo: 70}}<a href="#/project/{{project._id}}"> <b class="readMore">Read More...</b></a></p>
       </div>
-  </div>
+    </div>
 </div>
