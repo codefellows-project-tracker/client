@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ProjectController', ['$http', 'auth', function($http, auth) {
+  app.controller('ProjectController', ['$http', '$location', 'auth', function($http, $location, auth) {
     this.projects = [];
 
     this.token = auth.getToken();
@@ -31,6 +31,7 @@ module.exports = function(app) {
       $http.post(baseUrl, project, config)
         .then(res => {
           this.projects.push(res.data);
+          $location.path('/')
         })
         .catch(err => {
           console.log(err);
