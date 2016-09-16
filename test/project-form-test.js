@@ -39,6 +39,12 @@ describe('nav component', function() {
     this.scope.$digest();
     expect(nav.find('ul').length).toBe(3);
   });
+
+  it('should have a href', function() {
+    let nav = this.compile(require('./nav-template-test.html'))(this.scope);
+    this.scope.$digest();
+    expect(nav.find('a').length).toBe(5);
+  });
 });
 
 describe('single project component', function() {
@@ -70,3 +76,45 @@ describe('single project component', function() {
     expect(this.singleProjCtrl.project[0].description).toBe('O hai mark');
   });
 });
+
+// describe('single project component', function() {
+//   beforeEach(angular.mock.module('testApp'));
+//   beforeEach(angular.mock.inject(function($rootScope, $compile, $controller, $stateParams, $httpBackend){
+//     this.compile = $compile;
+//     this.scope = $rootScope.$new();
+//     $stateParams.id = 1234;
+//     this.id = $stateParams.id;
+//     this.$httpBackend = $httpBackend;
+//     this.singleProjCtrl = new $controller('SingleProjectController');
+//   }));
+//
+//   it('should create a project', function() {
+//     let url = 'http://localhost:3141/api/project/';
+//     let data = {
+//       name: 'Cool Project',
+//       classNumber: 'd8',
+//       classType: '301',
+//       hostedUrl: 'http://google.com',
+//       githubUrl: 'http://github.com',
+//       image: 'http://imgur.com/4.jpg',
+//       description: 'O hai mark',
+//       tech: ['Python'],
+//     };
+//     this.$httpBackend.expectPOST(this.url, data)
+//       .respond(200, [{
+//         name: 'Cool Project',
+//         classNumber: 'd8',
+//         classType: '301',
+//         hostedUrl: 'http://google.com',
+//         githubUrl: 'http://github.com',
+//         image: 'http://imgur.com/4.jpg',
+//         description: 'O hai mark',
+//         tech: ['Python'],
+//         __v: 0,
+//         _d: '124'
+//       }]);
+//     this.$httpBackend.flush();
+//     expect(this.singleProjCtrl.project[0].name).toBe('Cool Project');
+//     expect(this.singleProjCtrl.project[0].description).toBe('O hai mark');
+//   });
+// });
