@@ -25,7 +25,7 @@ module.exports = function(app) {
       },
       logOut: function() {
         $window.localStorage.clear();
-        this.currentUser = '';
+        this.currentUser = {};
         this.token = '';
         $location.path('/');
       }
