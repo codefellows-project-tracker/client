@@ -2,4 +2,7 @@
 
 require('angular');
 require('angular-mocks');
-angular.test = {};
+
+
+// require('./gallery-component-test');
+require('./project-form-test');
