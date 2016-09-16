@@ -33,8 +33,6 @@ describe('gallery component', function() {
       approved: true,
       tech: ['JS'],
     });
-
     this.$httpBackend.flush();
   });
-
 });

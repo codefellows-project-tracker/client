@@ -4,7 +4,6 @@ module.exports = function(app) {
   app.controller('ProjectController', ['$http', '$location', 'auth', function($http, $location, auth) {
     this.projects = [];
 
-
     this.token = auth.getToken();
 
     let baseUrl = `${__API_URL__}/api/project`;
@@ -37,11 +36,11 @@ module.exports = function(app) {
       $http.post(baseUrl, project, config)
         .then(res => {
           this.projects.push(res.data);
-          $location.path('/')
+          $location.path('/');
         })
         .catch(err => {
           console.log(err);
-        })
+        });
     };
 
     this.currentPage = 1;
