@@ -14,7 +14,7 @@ describe('gallery component', function() {
     this.scope = $rootScope.$new();
   }));
 
-  it('should have 8 labels', function() {
+  it('should have 8 projects', function() {
     let projectForm = this.compile(require('./project-form-test.html'))(this.scope);
     this.scope.$digest();
     expect(projectForm.find('label').length).toBe(9);
