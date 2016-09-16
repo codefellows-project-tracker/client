@@ -21,7 +21,6 @@ module.exports = function(app) {
         if (!token) return;
         let decoded = jwt.decodeToken(token);
         this.currentUser.email = decoded.email;
-        console.log(this.currentUser)
         return this.currentUser;
       },
       logOut: function() {
