@@ -16,7 +16,8 @@ module.exports = function(app) {
         return;
       }
       $http.post(baseUrl, user)
-        .then(() => {
+        .then((res) => {
+          auth.setToken(res.data.token);
           this.passMatch = true;
           $location.path('/');
         }, (err) => {

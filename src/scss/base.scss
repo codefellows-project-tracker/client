@@ -4,6 +4,18 @@
 @import "vendor/font-awesome/scss/font-awesome.scss";
 @import 'lib/_theme';
 @import 'lib/_gallery';
+
+body {
+  font-family: "Montserrat";
+}
+
+.icon-bar {
+  background-color: white;
+}
+
+.navbar-toogle {
+  background-color: #cf3127;
+}
 //**Gallery page
 h1 {
   text-align: center;

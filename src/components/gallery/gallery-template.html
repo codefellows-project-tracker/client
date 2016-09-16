@@ -1,14 +1,22 @@
 <div class="container" ng-init="$ctrl.getProjects()">
   <div class="row">
     <div class="col-md-12">
-      <div class="col-md-6 portfolio-item" ng-repeat="project in $ctrl.projects">
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Search" ng-model="search">
+          </div>
+        </div>
+      </form>
+      <div class="col-md-6 portfolio-item" ng-repeat="project in $ctrl.projects | orderBy: '-dateCreated' | filter:search">
           <a href="#/project/{{project._id}}">
               <img class="img-responsive" src="{{project.image}}" alt="">
           </a>
           <h3>
               <a href="#/project/{{project._id}}">{{project.name}}</a>
           </h3>
-          <p>{{project.description | limitTo: 70}}<a href="#/project/{{project._id}}"> <b class="readMore">Read More...</b></a></p>
+          <p>{{project.description | limitTo: 60}}<a href="#/project/{{project._id}}"> <b class="readMore">Read More...</b></a></p>
       </div>
     </div>
 </div>

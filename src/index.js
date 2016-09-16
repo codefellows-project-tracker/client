@@ -7,7 +7,7 @@ require('file?name=[name].[ext]!./img/logo.png');
 
 const angular = require('angular');
 
-const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap'), require('angular-animate'), require('angular-touch')]);
+const cptApp = angular.module('cptApp', [require('angular-jwt'), require('angular-ui-router'), require('angular-ui-bootstrap'), require('angular-animate'), require('angular-touch'), require('angular-utils-pagination')]);
 
 cptApp.run(['$rootScope', function($rootScope){
   $rootScope.baseUrl = `${__API_URL__}`;
