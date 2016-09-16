@@ -5,6 +5,7 @@
 @import 'lib/_theme';
 @import 'lib/_gallery';
 
+
 body {
   font-family: "Montserrat";
 }
@@ -451,4 +452,16 @@ nav.navbar.navbar-default {
   display: block;
   max-width: 100%;
   height: 40%;
+}
+nav.navbar.navbar-default {
+  background-color: #000000;
+  color: #fff;
+  padding: .5em;
+  margin-top: 0px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+}
+
+.url {
+  color: $app-darkRed;
 }
