@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('SingleProjectController', ['$http', '$stateParams', 'auth', function($http, $stateParams, auth) {
+  app.controller('SingleProjectController', ['$http', '$stateParams', 'auth', function($http, $stateParams) {
 
     let baseUrl = `${__API_URL__}`;
 
@@ -9,8 +9,7 @@ module.exports = function(app) {
 
     $http.get(baseUrl + '/api/project/' + id)
       .then(res => {
-        this.project = res.data
-        console.log(this.project)
-      })
+        this.project = res.data;
+      });
   }]);
 };

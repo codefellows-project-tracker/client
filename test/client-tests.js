@@ -75,32 +75,33 @@ describe('single project component', function() {
     expect(this.singleProjCtrl.project[0].name).toBe('Cool Project');
     expect(this.singleProjCtrl.project[0].description).toBe('O hai mark');
   });
-  it('should have multiple project', function() {
-    let url = 'http://localhost:3141/api/project/';
-    this.$httpBackend.expectGET(this.url)
-      .respond(200, [{
-        name: 'Cool Project',
-        classNumber: 'd8',
-        classType: '301',
-        hostedUrl: 'http://google.com',
-        githubUrl: 'http://github.com',
-        image: 'http://imgur.com/4.jpg',
-        description: 'O hai mark',
-        tech: ['Python'],
-      },
-      {
-        name: 'Very Cool Project',
-        classNumber: 'd9',
-        classType: '401',
-        hostedUrl: 'http://google.com',
-        githubUrl: 'http://github.com',
-        image: 'http://imgur.com/4asdf.jpg',
-        description: 'O hai mark',
-        tech: ['Python'],
-      }]);
-    this.$httpBackend.flush();
-    expect(this.singleProjCtrl.project[0].name).toBe('Cool Project');
-    expect(this.singleProjCtrl.project[0].description).toBe('O hai mark');
-    expect(this.singleProjCtrl.project[1].tech[0]).toBe('Python')
-  });
+});
+it('should have multiple project', function() {
+  let url = 'http://localhost:3141/api/project/';
+  this.$httpBackend.expectGET(this.url)
+    .respond(200, [{
+      name: 'Cool Project',
+      classNumber: 'd8',
+      classType: '301',
+      hostedUrl: 'http://google.com',
+      githubUrl: 'http://github.com',
+      image: 'http://imgur.com/4.jpg',
+      description: 'O hai mark',
+      tech: ['Python'],
+    },
+    {
+      name: 'Very Cool Project',
+      classNumber: 'd9',
+      classType: '401',
+      hostedUrl: 'http://google.com',
+      githubUrl: 'http://github.com',
+      image: 'http://imgur.com/4asdf.jpg',
+      description: 'O hai mark',
+      tech: ['Python'],
+    }]);
+  this.$httpBackend.flush();
+  expect(this.singleProjCtrl.project[0].name).toBe('Cool Project');
+  expect(this.singleProjCtrl.project[0].description).toBe('O hai mark');
+  expect(this.singleProjCtrl.project[1].tech[0]).toBe('Python')
+});
 });
