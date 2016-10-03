@@ -7,7 +7,7 @@ module.exports = function(app) {
     this.token = auth.getToken();
 
     let baseUrl = `${__API_URL__}/api/project`;
-
+//get rid of this extra line that I put this comment in
 
     this.getProjects = function() {
       const config = {

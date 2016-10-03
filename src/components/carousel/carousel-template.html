@@ -1,6 +1,7 @@
 <div ng-controller="CarouselController" class="container">
   <div class="row">
     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+      <!-- I would consider making a slide component, makes this easier to modify going forward --!>
       <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
         <img ng-src="{{slide.image}}" style="margin:auto;">
         <div class="carousel-caption">
