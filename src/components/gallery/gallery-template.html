@@ -9,6 +9,8 @@
           </div>
         </div>
       </form>
+      <!-- you might consider moving this into a separate component, would make it easier to change the display
+        if you decide to add or remove data later on !-->
       <div class="col-md-6 portfolio-item" ng-repeat="project in $ctrl.projects | orderBy: '-dateCreated' | filter:search">
           <a href="#/project/{{project._id}}">
               <img class="img-responsive" src="{{project.image}}" alt="">
